@@ -6,9 +6,10 @@ class API
         pokedex = 'https://pokeapi.co/api/v2/pokemon/'
         data_hash = HTTParty.get(pokedex)
         array_of_data = pokedex["results"]
+        binding.pry
         array_of_data.each do |name|
             Pokemon.new(name)
         end
-        binding.pry
+        
     end
 end
