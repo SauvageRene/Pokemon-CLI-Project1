@@ -9,5 +9,6 @@ class API
         array_of_data.each do |name|
             Pokemon.new(name)
         end
+        binding.pry
     end
 end
