@@ -1,4 +1,4 @@
-require 'pry'
+#require 'pry'
 
 class Pokemon
     
@@ -8,7 +8,7 @@ class Pokemon
         attr_hash.each do |key, value|
             self.send("#{key}=", v) if self.respond_to?("#{key}=")
         end
-        #binding.pry
+        save #binding.pry
     end
 
     def self.all
