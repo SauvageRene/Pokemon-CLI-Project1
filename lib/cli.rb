@@ -9,4 +9,11 @@ class CLI
         puts "To exit the application, enter 'exit'"
         binding.pry
     end
+
+    def menu
+    end
+
+    def input_to_index(input)
+        input.to_i - 1
+    end
 end
