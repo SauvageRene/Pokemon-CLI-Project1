@@ -1,7 +1,7 @@
 #require 'pry'
 
 class Pokemon
-    
+    attr_accessor :name, :id
 @@all = []
 
     def initialize(attr_hash) # the hash assigns values to keys so values can be looked up by their key
