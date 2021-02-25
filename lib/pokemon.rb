@@ -6,8 +6,8 @@ class Pokemon
 
     def initialize(attr_hash) # the hash assigns values to keys so values can be looked up by their key
         attr_hash.each do |key, value|
-            self.class.attr_accessor()
-            self.send("#{key}=", value)
+         self.send("#{key}=", value) if self.respond_to?("#{key}=")
+         #binding.pry
         end
         save #binding.pry
     end
@@ -19,4 +19,9 @@ class Pokemon
     def save
         @@all << self
     end
+
+    def self.find_by_name(name)
+        self.all.find{|pokemon| pokemon.pokemon_name == name}
+    end
+
 end
