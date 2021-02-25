@@ -1,8 +1,8 @@
 #require 'pry'
 
 class Pokemon
-    attr_accessor :name, :id, :base_attack, :base_defense, :base_stamina
-@@all = []
+    attr_accessor :pokemon_name, :pokemon_id, :base_attack, :base_defense, :base_stamina
+    @@all = []
 
     def initialize(attr_hash) # the hash assigns values to keys so values can be looked up by their key
         attr_hash.each do |key, value|
