@@ -65,10 +65,10 @@ class CLI
 
     def ask_user_input
         puts "which Pokemon would you like more details about?(Type number)"
-        input = gets.strip.downcase
+        input = gets.chomp
         index = input_to_index(input)
-        if index.between?(0, Pokemon.all.size) #allows user to input pokemon via index
-            display_pokemon_info
+        if index.between?(0, Pokemon.all.size-1) #allows user to input pokemon via index
+            display_pokemon_info(index)
         else
             puts "Invalid entry, try again."
             ask_user_input
@@ -81,6 +81,26 @@ class CLI
         puts "Name: #{pokemon.pokemon_name}"
         puts "Pokemon_id: #{pokemon.pokemon_id}"
         puts "Base_Attack: #{pokemon.base_attack}"
+        puts "Base_Defense: #{pokemon.base_defense}"
+        puts "Base_Stamina: #{pokemon.base_stamina}"
+        another_pokemon?
     end
-    
+
+    def another_pokemon?
+        puts "Get details on another pokemon?"
+        puts "1. yes"
+        puts "2. no"
+        input = gets.chomp
+        index = input_to_index(input)
+
+        if input == "1" || "yes"
+            pokemon_list
+        elsif input == "2" ||"no"
+            goodbye
+        else
+            puts "Invalid entry, try again"
+            another_pokemon?
+        end
+    end
+
 end
