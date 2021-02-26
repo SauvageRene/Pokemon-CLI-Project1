@@ -65,9 +65,9 @@ class CLI
 
     def ask_user_input
         puts "which Pokemon would you like more details about?(Type number)"
-        input = gets.strip
+        input = gets.strip.downcase
         index = input_to_index(input)
-        if index.between?(0, Pokemon.all.size-1) #allows user to input pokemon via index
+        if index.between?(0, Pokemon.all.size) #allows user to input pokemon via index
             display_pokemon_info
         else
             puts "Invalid entry, try again."
@@ -75,9 +75,12 @@ class CLI
         end
     end
 
-    def display_pokemon_info
+    def display_pokemon_info(index)
+        pokemon = Pokemon.all[index]
         
+        puts "Name: #{pokemon.pokemon_name}"
+        puts "Pokemon_id: #{pokemon.pokemon_id}"
+        puts "Base_Attack: #{pokemon.base_attack}"
     end
-
-
+    
 end
