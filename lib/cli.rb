@@ -75,5 +75,9 @@ class CLI
         end
     end
 
+    def display_pokemon_info
+        
+    end
+
 
 end
