@@ -27,9 +27,8 @@ class CLI
     end
 
      def pokemon_list
-        #pokemon_array = Pokemon.all.uniq{|pokemon| pokemon[:pokemon_name]}
-        #pokemon_array = Pokemon.all.each.merge(:pokemon_name)
-         Pokemon.all.each_with_index do |pokemon, index|
+        new_array = Pokemon.all
+         new_array.each_with_index do |pokemon, index|
              puts "#{index + 1}. #{pokemon.pokemon_name}"
          end
      end

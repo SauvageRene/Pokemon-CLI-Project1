@@ -1,4 +1,4 @@
-#require 'pry'
+require 'pry'
 
 class Pokemon
     attr_accessor :pokemon_name, :pokemon_id, :base_attack, :base_defense, :base_stamina
@@ -13,7 +13,7 @@ class Pokemon
     end
 
     def self.all
-        @@all
+         @@all
     end
 
     def save
@@ -23,5 +23,10 @@ class Pokemon
     def self.find_by_name(name)
         self.all.find{|pokemon| pokemon.pokemon_name == name}
     end
+
+    # def self.merge_if?
+    #     attr_accessor.slice('pokemon_name', 'pokemon_id', 'base_attack', 'base_defense', 'base_stamina').values.join(":")
+    # end
+    # binding.pry
 
 end
