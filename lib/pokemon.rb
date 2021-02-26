@@ -5,11 +5,14 @@ class Pokemon
     @@all = []
 
     def initialize(attr_hash) # the hash assigns values to keys so values can be looked up by their key
-        attr_hash.each do |key, value|
-         self.send("#{key}=", value) if self.respond_to?("#{key}=")
+        if self.class.find_by_name(attr_hash["pokemon_name"]).nil?
+
+            attr_hash.each do |key, value|
+                self.send("#{key}=", value) if self.respond_to?("#{key}=")
          #binding.pry
+            end
+            save
         end
-        save #binding.pry
     end
 
     def self.all
@@ -28,5 +31,4 @@ class Pokemon
     #     attr_accessor.slice('pokemon_name', 'pokemon_id', 'base_attack', 'base_defense', 'base_stamina').values.join(":")
     # end
     # binding.pry
-
 end
