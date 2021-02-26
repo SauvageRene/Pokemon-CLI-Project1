@@ -1,4 +1,4 @@
- require 'pry'
+ #require 'pry'
  #require 'httparty'
 
 class API
@@ -7,7 +7,7 @@ class API
         url = 'https://pogoapi.net/api/v1/pokemon_stats.json'
         pogo_array = HTTParty.get(url).body
         new_pogo_array = JSON.parse(pogo_array)
-        binding.pry
+        #binding.pry
         new_pogo_array.each do |pokemon|
             Pokemon.new(pokemon)
         end

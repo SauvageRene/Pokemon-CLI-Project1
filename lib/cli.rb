@@ -1,4 +1,4 @@
-#require 'pry'
+require 'pry'
 
 class CLI
 
@@ -26,12 +26,26 @@ class CLI
         input.to_i - 1
     end
 
-    def pokemon_list
-        Pokemon.all.each_with_index do |pokemon, index|
-            puts "#{index + 1}. #{pokemon.pokemon_name}"
-        end
-        ask_user_input
-    end
+     def pokemon_list
+        #pokemon_array = Pokemon.all.uniq{|pokemon| pokemon[:pokemon_name]}
+        #pokemon_array = Pokemon.all.each.merge(:pokemon_name)
+         Pokemon.all.each_with_index do |pokemon, index|
+             puts "#{index + 1}. #{pokemon.pokemon_name}"
+         end
+     end
+    #      
+    # def pokemon_list
+    #     merged_list = {}
+    #     Pokemon.all.each do |pokemon|
+    #         if merged_list.has_keys? pokemon[:pokemon_name]
+    #             merged_list[pokemon.pokemon_name].merge! pokemon
+    #         else
+    #             merged_list[pokemon.pokemon_name] = pokemon
+    #         end
+    #     end
+    #     Pokemon.all = merged_list.collect{|k, v| v}
+    #     binding.pry
+    # end
 
     def goodbye
         puts "Go catch them all! Goodbye."
