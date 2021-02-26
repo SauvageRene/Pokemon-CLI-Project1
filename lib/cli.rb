@@ -83,19 +83,20 @@ class CLI
         puts "Base_Attack: #{pokemon.base_attack}"
         puts "Base_Defense: #{pokemon.base_defense}"
         puts "Base_Stamina: #{pokemon.base_stamina}"
+        puts "----------------"
         another_pokemon?
     end
 
     def another_pokemon?
         puts "Get details on another pokemon?"
-        puts "1. yes"
-        puts "2. no"
+        puts "type '1' for yes"
+        puts "type '2' for no"
         input = gets.chomp
         index = input_to_index(input)
 
-        if input == "1" || "yes"
+        if input == "1"
             pokemon_list
-        elsif input == "2" ||"no"
+        elsif input == "2"
             goodbye
         else
             puts "Invalid entry, try again"
