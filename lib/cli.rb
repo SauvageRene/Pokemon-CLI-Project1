@@ -8,7 +8,7 @@ class CLI
         puts "If you want a list of pokemon availble in PoGo enter 'yes'"
         puts "To exit the application, enter 'exit'"
         menu
-        binding.pry
+        #binding.pry
     end
 
     def menu
@@ -25,4 +25,22 @@ class CLI
     def input_to_index(input)
         input.to_i - 1
     end
+
+    def pokemon_list
+        Pokemon.all.each_with_index do |pokemon, index|
+            puts "#{index + 1}. #{pokemon.pokemon_name}"
+        end
+        ask_user_input
+    end
+
+    def goodbye
+        puts "Go catch them all! Goodbye."
+    end
+
+    def invalid_entry
+        puts "Invalid entry, please try again."
+        menu
+    end
+
+
 end
