@@ -45,10 +45,12 @@ class CLI
     end
 
      def pokemon_list
-        new_array = Pokemon.all #uniq{|pokemon| pokemon[:pokemon_name]} 
+        new_array = Pokemon.all
          new_array.each_with_index do |pokemon, index|
              puts "#{index + 1}. #{pokemon.pokemon_name}"
          end
+         puts ""
+         ask_user_input
      end
 
    
@@ -59,6 +61,18 @@ class CLI
     def invalid_entry
         puts "Invalid entry, please try again."
         menu
+    end
+
+    def ask_user_input
+        puts "which Pokemon would you like more details about?(Type number)"
+        input = gets.strip
+        index = input_to_index(input)
+        if index.between?(0, Pokemon.all.size-1) #allows user to input pokemon via index
+            display_pokemon_info
+        else
+            puts "Invalid entry, try again."
+            ask_user_input
+        end
     end
 
 
