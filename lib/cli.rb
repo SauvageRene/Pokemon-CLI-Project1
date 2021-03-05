@@ -20,7 +20,8 @@ class CLI
     end
 
     def run
-        API.grab_pokemon
+        API.grab_pokemon #Calling my API data
+        binding.pry
         pokemon_art
         puts "Welcome PokeMaster!"
         puts "If you want a list of pokemon availble in PoGo enter 'yes'"
@@ -45,9 +46,9 @@ class CLI
     end
 
      def pokemon_list
-        new_array = Pokemon.all
-         new_array.each_with_index do |pokemon, index|
+            Pokemon.all.each_with_index do |pokemon, index|
              puts "#{index + 1}. #{pokemon.pokemon_name}"
+             #binding.pry
          end
          puts ""
          ask_user_input
@@ -64,7 +65,7 @@ class CLI
     end
 
     def ask_user_input
-        puts "which Pokemon would you like more details about?(Type number)"
+        puts "Which Pokemon would you like more details about?(Type number)"
         input = gets.chomp
         index = input_to_index(input)
         if index.between?(0, Pokemon.all.size-1) #allows user to input pokemon via index
@@ -74,7 +75,7 @@ class CLI
             ask_user_input
         end
     end
-
+  
     def display_pokemon_info(index)
         pokemon = Pokemon.all[index]
         

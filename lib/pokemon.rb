@@ -31,4 +31,8 @@ class Pokemon
     #     attr_accessor.slice('pokemon_name', 'pokemon_id', 'base_attack', 'base_defense', 'base_stamina').values.join(":")
     # end
     # binding.pry
+
+    def self.best_attack(num)
+        self.all.select{|pokemon| pokemon.base_attack >= num}
+    end
 end
